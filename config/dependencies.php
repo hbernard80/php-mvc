@@ -14,4 +14,15 @@ return [
     },
     App\Service\GreetingService::class => autowire(),
     App\Controller\HomeController::class => autowire(),
+    \AltoRouter::class => static function (): \AltoRouter {
+        $router = new \AltoRouter();
+        $routes = require __DIR__ . '/routes.php';
+
+        foreach ($routes as $route) {
+            [$method, $path, $target, $name] = array_pad($route, 4, null);
+            $router->map($method, $path, $target, $name);
+        }
+
+        return $router;
+    },
 ];

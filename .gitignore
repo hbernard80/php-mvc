@@ -1,4 +1,7 @@
-/vendor/
+/vendor/*
+!/vendor/autoload.php
+!/vendor/altorouter/
+!/vendor/altorouter/**
 /var/
 /.php-cs-fixer.cache
 /.idea/
