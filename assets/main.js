@@ -1,3 +1,6 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap';
+
 const message = 'Vite est correctement configuré et prêt à compiler vos assets !';
 
 function enhanceHero() {
