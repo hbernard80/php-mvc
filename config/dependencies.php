@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Database\DatabaseConnection;
+use App\Core\Database\DatabaseConnection;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 use function DI\autowire;
