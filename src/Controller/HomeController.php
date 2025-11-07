@@ -18,8 +18,35 @@ final class HomeController
 
     public function __invoke(): void
     {
+        $vite = $this->resolveViteAssets();
+
         echo $this->twig->render('home.html.twig', [
             'greeting' => $this->greetingService->greet('World'),
+            'vite' => $vite,
         ]);
+    }
+
+    /**
+     * @return array{client: string|null, script: string}
+     */
+    private function resolveViteAssets(): array
+    {
+        $publicDir = dirname(__DIR__, 2) . '/public';
+        $buildScript = '/build/main.js';
+        $buildPath = $publicDir . $buildScript;
+
+        if (is_file($buildPath)) {
+            return [
+                'client' => null,
+                'script' => $buildScript,
+            ];
+        }
+
+        $devServerUrl = 'http://localhost:5173';
+
+        return [
+            'client' => $devServerUrl . '/@vite/client',
+            'script' => $devServerUrl . '/main.js',
+        ];
     }
 }
