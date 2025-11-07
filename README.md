@@ -1,1 +1,1 @@
-# Projet PHP avec une architecture Modäle-Vue-Contrìleur 
+# Projet PHP avec une architecture Mod√®le-Vue-Contr√¥leur 
