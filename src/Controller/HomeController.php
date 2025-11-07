@@ -27,7 +27,7 @@ final class HomeController
     }
 
     /**
-     * @return array{client: string|null, script: string}
+     * @return array{client: string|null, script: string, styles: array<int, string>}
      */
     private function resolveViteAssets(): array
     {
@@ -36,9 +36,16 @@ final class HomeController
         $buildPath = $publicDir . $buildScript;
 
         if (is_file($buildPath)) {
+            $styles = glob($publicDir . '/build/*.css') ?: [];
+            $styles = array_map(
+                static fn (string $path): string => str_replace($publicDir, '', $path),
+                $styles,
+            );
+
             return [
                 'client' => null,
                 'script' => $buildScript,
+                'styles' => array_values($styles),
             ];
         }
 
@@ -47,6 +54,7 @@ final class HomeController
         return [
             'client' => $devServerUrl . '/@vite/client',
             'script' => $devServerUrl . '/main.js',
+            'styles' => [],
         ];
     }
 }
