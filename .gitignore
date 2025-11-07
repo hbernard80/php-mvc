@@ -3,6 +3,8 @@
 !/vendor/altorouter/
 !/vendor/altorouter/**
 /var/
+node_modules/
+public/build/
 /.php-cs-fixer.cache
 /.idea/
 /.vscode/
