@@ -2,7 +2,11 @@
 
 declare(strict_types=1);
 
+use App\Core\Environment\Env;
+
 require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+Env::load(dirname(__DIR__) . '/.env');
 
 $container = require dirname(__DIR__) . '/config/container.php';
 $router = $container->get(\AltoRouter::class);
