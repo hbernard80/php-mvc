@@ -4,7 +4,6 @@
     "type": "project",
     "require": {
         "php": "^8.1",
-        "twig/twig": "^3.0",
         "altorouter/altorouter": "^2.0"
     },
     "autoload": {

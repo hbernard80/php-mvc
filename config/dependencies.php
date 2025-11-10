@@ -3,14 +3,13 @@
 declare(strict_types=1);
 
 use App\Core\Database\DatabaseConnection;
-use Twig\Environment;
-use Twig\Loader\FilesystemLoader;
+use App\Core\View\TemplateRenderer;
 
 return [
-    Environment::class => static function (): Environment {
-        $loader = new FilesystemLoader(dirname(__DIR__) . '/templates');
+    TemplateRenderer::class => static function (): TemplateRenderer {
+        $templatesPath = dirname(__DIR__) . '/templates';
 
-        return new Environment($loader);
+        return new TemplateRenderer($templatesPath);
     },
     \PDO::class => static fn (): \PDO => DatabaseConnection::getInstance(),
     \AltoRouter::class => static function (): \AltoRouter {
