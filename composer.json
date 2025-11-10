@@ -1,10 +1,9 @@
 {
     "name": "php-mvc/app",
-    "description": "Simple PHP MVC application with PHP-DI",
+    "description": "Simple PHP MVC application with lightweight container",
     "type": "project",
     "require": {
         "php": "^8.1",
-        "php-di/php-di": "^7.0",
         "twig/twig": "^3.0",
         "altorouter/altorouter": "^2.0"
     },

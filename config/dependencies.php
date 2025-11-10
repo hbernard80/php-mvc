@@ -5,7 +5,6 @@ declare(strict_types=1);
 use App\Core\Database\DatabaseConnection;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
-use function DI\autowire;
 
 return [
     Environment::class => static function (): Environment {
@@ -13,8 +12,6 @@ return [
 
         return new Environment($loader);
     },
-    App\Service\GreetingService::class => autowire(),
-    App\Controller\HomeController::class => autowire(),
     \PDO::class => static fn (): \PDO => DatabaseConnection::getInstance(),
     \AltoRouter::class => static function (): \AltoRouter {
         $router = new \AltoRouter();

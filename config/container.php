@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use DI\ContainerBuilder;
+use App\Core\Container\ContainerBuilder;
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
